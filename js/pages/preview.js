@@ -1,3 +1,5 @@
+import { renderizarPagina } from "../main.js"
+
 export const criarPreview = () =>{
     const form = document.createElement('form')
     const previewContainer = document.createElement('div')
@@ -6,7 +8,7 @@ export const criarPreview = () =>{
     const previewLabel = document.createElement('label')
     const previewImage = document.createElement('img')
     const uploadButton = document.createElement('button')
-    const deleteButton = document.createElement('button')
+    const cancelarButton = document.createElement('button')
 
     previewContainer.className = 'preview-container'
     buttonContainer.className = 'button-container'
@@ -28,11 +30,12 @@ export const criarPreview = () =>{
     uploadButton.id = 'upload-button'
     uploadButton.textContent = 'Salvar'
 
-    deleteButton.className = 'button'
-    deleteButton.type = 'button'
-    deleteButton.textContent = 'Cancelar'
+    cancelarButton.className = 'button'
+    cancelarButton.type = 'button'
+    cancelarButton.textContent = 'Cancelar'
+    cancelarButton.onclick = () => renderizarPagina('login')
 
-    buttonContainer.replaceChildren(uploadButton, deleteButton)
+    buttonContainer.replaceChildren(uploadButton, cancelarButton)
 
     previewContainer.replaceChildren(previewInput, previewLabel, previewImage)
 

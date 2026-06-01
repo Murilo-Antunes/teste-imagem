@@ -2,8 +2,23 @@
 import { criarPreview } from "./pages/preview.js"
 import { criarLogin } from "./pages/login.js"
 
-const main = document.getElementById('main-content')
+const paginas = {
+    preview: {
+        titulo: "preview de Imagens",
+        renderizar: criarPreview
+    },
+    login: {
+        titulo: "login",
+        renderizar: criarLogin
+    }
+}
 
-const pagina = criarLogin()
 
-main.appendChild(pagina)
+export const renderizarPagina = (nomePagina) =>{
+    const main = document.getElementById('main-content')
+    let pagina = paginas[nomePagina].renderizar()
+
+    main.replaceChildren(pagina)
+}
+
+renderizarPagina('login')
