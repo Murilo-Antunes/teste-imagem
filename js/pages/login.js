@@ -1,6 +1,6 @@
 'use strict'
 
-import { renderizarPagina } from "../main"
+import { renderizarPagina } from "../main.js"
 
 export function criarLogin() {
     const formulario = document.createElement('form')
